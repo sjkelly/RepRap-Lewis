@@ -78,8 +78,21 @@ sarrus_top_thick = screw_diameter * 3;
 sarrus_bottom_thick = sarrus_top_thick;
 
 sarrus_link_diameter = sarrus_top_thick;
-sarrus_link_length = (build_height + coupler_height + sarrus_top_thick)/2; //longer than needed, but keeps them bent at top
+sarrus_link_length = (build_height + motor_shaft_length + motor_flange_height + coupler_height/2)/2;
 sarrus_link_thick = screw_diameter * 1.5;
+
+truss_length = motor_length+motor_flange_height+motor_shaft_length+build_height+coupler_height/2+sarrus_top_thick+build_bed_thick;
+
+truss_top_thick = screw_diameter * 3;
+
+sweep_link_length = build_radius/2;
+sweep_link_thick = screw_diameter * 3;
+
+arc_link_length = build_radius/2;
+
+//the rotation rate during animation
+d_sarrus_bottom = -90+acos((motor_shaft_length+coupler_height/2)/(sarrus_link_length*2))*$t;
+d_sarrus_top = 90-acos((motor_shaft_length+coupler_height/2)/(sarrus_link_length*2))*$t;
 
 //Factoids!!
 pi = 3.14159;

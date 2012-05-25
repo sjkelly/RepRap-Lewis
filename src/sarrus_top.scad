@@ -32,8 +32,8 @@ module sarrus_top_assembly(){
 		sarrus_top();
 		rotate([0,0,30])lead_nut();
 		for(i = [0:90:360]){
-			rotate([0,0,i])translate([sarrus_top_od/2+sarrus_link_diameter/2,-sarrus_link_thick/2,sarrus_link_diameter/2])rotate([90,90-90*$t,0])sarrus_link();
-			rotate([0,0,i])translate([sarrus_top_od/2+sarrus_link_diameter/2,sarrus_link_thick*3/2,sarrus_link_diameter/2])rotate([90,90-90*$t,0])sarrus_link();
+			rotate([0,0,i])translate([sarrus_top_od/2+sarrus_link_diameter/2,-sarrus_link_thick/2,sarrus_link_diameter/2])rotate([90,d_sarrus_top,0])sarrus_link();
+			rotate([0,0,i])translate([sarrus_top_od/2+sarrus_link_diameter/2,sarrus_link_thick*3/2,sarrus_link_diameter/2])rotate([90,d_sarrus_top,0])sarrus_link();
 			rotate([0,0,i])translate([sarrus_top_od/2+sarrus_link_diameter/2,sarrus_link_thick*5/2+washer_thick,sarrus_link_diameter/2])rotate([90,0,0])screw(sarrus_link_thick*4+washer_thick*2+lock_nut_height);
 			rotate([0,0,i])translate([sarrus_top_od/2+sarrus_link_diameter/2,sarrus_link_thick*5/2+washer_thick,sarrus_link_diameter/2])rotate([90,0,0])washer();
 			rotate([0,0,i])translate([sarrus_top_od/2+sarrus_link_diameter/2,-sarrus_link_thick*3/2,sarrus_link_diameter/2])rotate([90,0,0])washer();
