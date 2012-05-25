@@ -1,0 +1,8 @@
+#config.rcad#
+Specifies parameters for the rest of the parts. 
+
+#assembly.rcad#
+An assembly preview, with all parts aligned.
+
+#vitamins.rcad#
+The modules to generate non-printable components we want to see in the assembly view. 
