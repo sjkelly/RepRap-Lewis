@@ -16,14 +16,16 @@ nema8 = [20.3, 30, 16, 2, 15, 1.5, 14, 4];
 nema11 = [28.1, 27, 23, 2.5, 21, 2, 20, 5];
 nema14 = [35.2, 36, 26, 3, 22, 2, 21, 5];
 nema17 = [42.3, 48, 31, 3, 22, 2, 23, 5];
+pololu_35x26 = [35.2, 26, 26, 3, 22, 2, 21, 5];
 
-// Assign Screw and Lead Screw arrays
+// Assign Screw array
 screw_array = (screw=="M2") ? m2 : (screw=="M2.5") ? m2_5 : (screw=="M3") ? m3 : (screw=="M4") ? m4 : (screw=="M5") ? m5 : (screw=="M6") ? m6 : (screw=="M8") ? m8 : "error";
 
+// Assign Lead Screw Array
 lead_screw_array = (lead_screw=="M2") ? m2 : (lead_screw=="M2.5") ? m2_5 : (lead_screw=="M3") ? m3 : (lead_screw=="M4") ? m4 : (lead_screw=="M5") ? m5 : (lead_screw=="M6") ? m6 : (lead_screw=="M8") ? m8 : "error";
 
 //Assign motor array
-motor_array = (motor=="NEMA8") ? nema8 : (motor=="NEMA11") ? nema11 : (motor=="NEMA14") ? nema14 : (motor=="NEMA17") ? nema17 : "error";
+motor_array = (motor=="NEMA8") ? nema8 : (motor=="NEMA11") ? nema11 : (motor=="NEMA14") ? nema14 : (motor=="NEMA17") ? nema17 : (motor=="Pololu 35x26") ? pololu_35x26 :"error";
 
 
 
@@ -39,6 +41,10 @@ else echo(str("--Lead Screw =  ",lead_screw));
 if(motor_array == "error")echo("--Error : invalid motor");
 else echo(str("--Motor =  ",motor));
 
+//constants
+pi = 3.14159;
+phi = 1.618;
+eta = 0.001; //used to eliminate coincident faces
 
 //Assign more verbose variables
 screw_diameter = screw_array[0];
@@ -57,6 +63,7 @@ lead_nut_apothem = lead_screw_array[3] / 2;
 lead_nut_diameter = lead_screw_array[3] / cos(30);
 lead_nut_height = lead_screw_array[5];
 lead_screw_diameter = lead_screw_array[0];
+lead_screw_length = 00;
 
 motor_width = motor_array[0];
 motor_length = motor_array[1];
@@ -67,6 +74,7 @@ motor_flange_height = motor_array[5];
 motor_shaft_length = motor_array[6];
 motor_shaft_diameter = motor_array[7];
 motor_hole_engagement = motor_hole_diameter *1.5;
+motor_total_length = motor_length + motor_shaft_length + motor_flange_height;
 
 coupler_height = motor_shaft_length * 1.5;
 coupler_diameter = (motor_shaft_diameter > lead_screw_diameter) ? motor_shaft_diameter * 3 : lead_screw_diameter * 3;
@@ -79,7 +87,7 @@ sarrus_bottom_thick = sarrus_top_thick;
 
 sarrus_link_diameter = sarrus_top_thick;
 sarrus_link_length = (build_height + motor_shaft_length + motor_flange_height + coupler_height/2)/2;
-sarrus_link_thick = screw_diameter * 1.5;
+sarrus_link_thick = screw_diameter * phi;
 
 truss_length = motor_length+motor_flange_height+motor_shaft_length+build_height+coupler_height/2+sarrus_top_thick+build_bed_thick;
 
@@ -99,7 +107,6 @@ d_sarrus_bottom = -asin((sarrus_link_length-build_height/2*$t)/sarrus_link_lengt
 d_sarrus_top = asin((sarrus_link_length-build_height/2*$t)/sarrus_link_length);
 
 //Factoids!!
-pi = 3.14159;
 build_volume = pi*(pow(build_radius/10,2) - pow(motor_width/10*sqrt(2),2)) * build_height/10;
 echo("Factoids...");
 echo(str("--Theoretical build volume =  ",build_volume, " cm^3"));

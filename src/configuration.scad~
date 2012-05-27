@@ -1,13 +1,29 @@
 /*
 Configuration for a RepRap Lewis. Derived parameterizations occur in "measurements.scad".
+Check out http://reprap.org/wiki/Lewis for more information.
 */
+
 //What you want
-build_radius = 100; //in millimeters
-build_height = 100; //in millimeters
+	//Outer radius of the build bed(it is donut shaped because the motor sits in the middle)
+	build_radius = 100; //in millimeters 
+
+	//Travel of the build bed in the X axis. Could be smaller depending on hot end length. 
+	build_height = 100; //in millimeters
 
 //What you bring to the party
-build_bed_thick = 4; //thickness of the build bed in millimeters
-screw = "M3"; //Values are M2, M2.5, M3, M4, M5, M6, M8
-lead_screw = "M4"; //Values are M2, M2.5, M3, M4, M5, M6, M8
-motor = "NEMA14"; //Values are NEMA8, NEMA11, NEMA14, NEMA17 
-bearing = "624";
+	//Thickness of the build bed in millimeters
+	build_bed_thick = 4; //in millimeters
+
+	//Screw standard that will be used throughout the printer.
+	//Values are "M2", "M2.5", "M3", "M4", "M5", "M6", "M8" 
+	screw = "M3"; //Keep capitalization and quotes
+
+	//Screw standard used for the lead screw. Size equal to shaft diameter is recommended
+	//Values are "M2", "M2.5", "M3", "M4", "M5", "M6", "M8"
+	lead_screw = "M4"; //Keep capitalization and quotes
+
+	//The stepper motor used on the printer.
+	//Values are "NEMA8", "NEMA11", "NEMA14", "NEMA17" 
+	//Values for brand motors are "Pololu 35x26"
+	motor = "NEMA14"; //Keep capitalization, quotes and spacing
+

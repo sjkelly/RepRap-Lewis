@@ -5,10 +5,8 @@ The RepRap Lewis is named after Edward B. Lewis (http://en.wikipedia.org/wiki/Ed
 It is a polar based RepRap combining use of simple arc movements along with a Sarrus linkage to achieve a very high printable component to vitamin ratio. 
 
 #How can I hack the source?#
-It is currently designed in RapCAD (http://www.rapcad.org/), which can be easily ported to OpenSCAD.
+It is currently designed in OpenCAD (http://www.openscad.org/).
 
 #What is the License?#
-Lewis is licensed under the GPLv3 (http://www.gnu.org/licenses/gpl.html), with exceptions. See below. 
+Lewis is licensed under the GPL (http://www.gnu.org/licenses/gpl.html), with exceptions. See below. 
 
-#Can I enter into the Gada Prize?#
-We are including the "No entrance into the Gada Prize" clause into our licensing. Meaning only the originator is permitted to enter the RepRap Lewis into the Kartik M. Gada Humanitarian Innovation Prize in Personal Manufacturing (the Gada Prize). More info on the Gada prize can be found here... (http://humanityplus.org/projects/gadaprize/). 
