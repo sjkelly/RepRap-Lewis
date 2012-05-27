@@ -89,13 +89,14 @@ sweep_link_length = build_radius/2;
 sweep_link_thick = screw_diameter * 3;
 
 arc_link_length = build_radius/2;
+arc_link_thick = screw_diameter * 3;
 
-//the rotation rate during animation
+head_id = build_radius/4;
+head_od = head_id + screw_diameter * 4;
+
+//the rotation rate of things during animation
 d_sarrus_bottom = -asin((sarrus_link_length-build_height/2*$t)/sarrus_link_length);
 d_sarrus_top = asin((sarrus_link_length-build_height/2*$t)/sarrus_link_length);
-
-echo(d_sarrus_bottom);
-echo(d_sarrus_top);
 
 //Factoids!!
 pi = 3.14159;
