@@ -8,7 +8,7 @@ Check out http://reprap.org/wiki/Lewis for more information.
 	build_radius = 100; //in millimeters 
 
 	//Travel of the build bed in the X axis. Could be smaller depending on hot end length. 
-	build_height = 100; //in millimeters
+	build_height = 00; //in millimeters
 
 //What you bring to the party
 	//Thickness of the build bed in millimeters
@@ -25,5 +25,5 @@ Check out http://reprap.org/wiki/Lewis for more information.
 	//The stepper motor used on the printer.
 	//Values are "NEMA8", "NEMA11", "NEMA14", "NEMA17" 
 	//Values for brand motors are "Pololu 35x26"
-	motor = "NEMA14"; //Keep capitalization, quotes and spacing
+	motor = "Pololu 35x26"; //Keep capitalization, quotes and spacing
 

@@ -23,7 +23,7 @@ module coupler_assembly(){
 	union(){
 		motor();
 		translate([0,0,motor_length+motor_flange_height+motor_shaft_length-coupler_height/2])coupler();
-		translate([0,0,motor_length+motor_flange_height+motor_shaft_length])lead_screw(build_height+coupler_height/2+lead_nut_height);
+		translate([0,0,motor_length+motor_flange_height+motor_shaft_length])lead_screw(build_height+coupler_height/2+sarrus_top_thick+truss_top_thick);
 		translate([coupler_diameter/2,0,motor_length+motor_flange_height+motor_shaft_length-coupler_height/4])rotate([0,-90,0])set_screw(coupler_diameter/2);
 		translate([coupler_diameter/2,0,motor_length+motor_flange_height+motor_shaft_length+coupler_height/4])rotate([0,-90,0])set_screw(coupler_diameter/2);
 		translate([motor_shaft_diameter/2,0,motor_length+motor_flange_height+motor_shaft_length+coupler_height/4])rotate([0,90,0])nut();

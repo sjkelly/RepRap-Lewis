@@ -11,7 +11,7 @@ module truss_top(){
 		translate([-motor_hole_spacing/2,motor_hole_spacing/2,-1])poly_cylinder(r=motor_hole_diameter/2, h = truss_top_thick+2);
 		translate([motor_hole_spacing/2,-motor_hole_spacing/2,-1])poly_cylinder(r=motor_hole_diameter/2, h = truss_top_thick+2);
 		translate([-motor_hole_spacing/2,-motor_hole_spacing/2,-1])poly_cylinder(r=motor_hole_diameter/2, h = truss_top_thick+2);
-		translate([0,0,-1])poly_cylinder(r=motor_flange_diameter/2, h = sarrus_bottom_thick+2);
+		translate([0,0,-1])poly_cylinder(r=lead_screw_diameter/2, h = sarrus_bottom_thick+2);
 	}
 }
 module truss_top_assembly(){

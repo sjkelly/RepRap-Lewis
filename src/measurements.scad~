@@ -44,7 +44,7 @@ else echo(str("--Motor =  ",motor));
 //constants
 pi = 3.14159;
 phi = 1.618;
-eta = 0.001; //used to eliminate coincident faces
+eta = 0.1; //used to eliminate coincident faces
 
 //Assign more verbose variables
 screw_diameter = screw_array[0];
@@ -63,6 +63,7 @@ lead_nut_apothem = lead_screw_array[3] / 2;
 lead_nut_diameter = lead_screw_array[3] / cos(30);
 lead_nut_height = lead_screw_array[5];
 lead_screw_diameter = lead_screw_array[0];
+lead_screw_length = 00;
 
 motor_width = motor_array[0];
 motor_length = motor_array[1];
@@ -83,12 +84,18 @@ sarrus_top_od = sarrus_top_id + 2 + screw_diameter*4;
 sarrus_top_thick = screw_diameter * 3;
 
 sarrus_bottom_thick = sarrus_top_thick;
+bottom_truss_interface_height = sarrus_bottom_thick + nut_diameter*2;
+bottom_truss_interface_length = -motor_flange_diameter/ + motor_width/
+bottom_truss_interface_height
 
 sarrus_link_diameter = sarrus_top_thick;
 sarrus_link_length = (build_height + motor_shaft_length + motor_flange_height + coupler_height/2)/2;
 sarrus_link_thick = screw_diameter * phi;
 
-truss_length = motor_length+motor_flange_height+motor_shaft_length+build_height+coupler_height/2+sarrus_top_thick+build_bed_thick;
+truss_length = motor_flange_height+motor_shaft_length+build_height+coupler_height/2+sarrus_top_thick+build_bed_thick;
+truss_width = motor_width;
+truss_height = motor_width * sqrt(2)/2 - motor_width/2;
+truss_radius = motor_width * sqrt(2)/2;
 
 truss_top_thick = screw_diameter * 3;
 
@@ -100,6 +107,11 @@ arc_link_thick = screw_diameter * 3;
 
 head_id = build_radius/4;
 head_od = head_id + screw_diameter * 5;
+
+foot_thick = lock_nut_height;
+foot_width = washer_diameter+nut_apothem*6;
+foot_length = build_radius-motor_width*sqrt(2)/2;
+foot_height = motor_length + sarrus_bottom_thick;
 
 //the rotation rate of things during animation
 d_sarrus_bottom = -asin((sarrus_link_length-build_height/2*$t)/sarrus_link_length);
