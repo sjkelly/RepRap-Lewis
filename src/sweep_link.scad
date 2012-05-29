@@ -27,7 +27,7 @@ module sweep_link_assembly(){
 	rotate([0,0,360*$t])
 	union(){
 		rotate([180,0,0])sweep_link();
-		translate([sweep_link_length,0,-motor_shaft_length-motor_flange_height])rotate([0,0,110*$t])arc_link_assembly();
+		translate([sweep_link_length,0,-motor_shaft_length-motor_flange_height])rotate([0,0,0])arc_link_assembly();
 		translate([-motor_shaft_diameter/2-nut_height, 0, -motor_shaft_length/2])rotate([0,90,0])nut();
 		translate([-coupler_diameter/2, 0, -motor_shaft_length/2])rotate([0,90,0])set_screw(coupler_diameter/2);
 		translate([sweep_link_length,0,motor_length])rotate([180,0,0])motor();

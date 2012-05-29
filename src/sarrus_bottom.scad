@@ -47,6 +47,7 @@ module sarrus_bottom_assembly(){
 			rotate([0,0,45+i])translate([motor_hole_spacing*sqrt(2)/2+lock_nut_height/2,washer_diameter/2+nut_apothem,sarrus_bottom_thick/2])rotate([0,-90,0])lock_nut();
 			rotate([0,0,45+i])translate([motor_hole_spacing*sqrt(2)/2+lock_nut_height/2,-washer_diameter/2-nut_apothem,sarrus_bottom_thick/2])rotate([0,-90,0])lock_nut();
 		}
+			
 
 	}
 }

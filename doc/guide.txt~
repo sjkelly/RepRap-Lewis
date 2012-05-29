@@ -1,8 +1,19 @@
-#config.rcad#
-Specifies parameters for the rest of the parts. 
+#contrubuting#
+Fork on GitHub or submit bug reports!
 
-#assembly.rcad#
-An assembly preview, with all parts aligned.
+#Release#
+Alpha:
+	Major feature lock, major goals on roadmap met. 
+Beta:
+	Minor goals may be added, bug fixes. Documentation begins.
+Release Candidate:
+	Critical bug fixes corrected, documentation updates complete.
+Release:
+	Bug fixes go to next version, documentation corrections continue. 
 
-#vitamins.rcad#
-The modules to generate non-printable components we want to see in the assembly view. 
+
+#Version system#
+.xx
+Tenths position, major revision, breaks part relations across series.
+Hundreths position, minor revision, extensions, bug fixes, does not break part relations
+Hundreths position >, extensions, bug fixes, that break part relations

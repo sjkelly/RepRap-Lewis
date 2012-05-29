@@ -1,0 +1,19 @@
+#contrubuting#
+Fork on GitHub or submit bug reports!
+
+#Release#
+Alpha:
+	Major feature lock, major goals on roadmap met. 
+Beta:
+	Minor goals may be added, bug fixes. Documentation begins.
+Release Candidate:
+	Critical bug fixes corrected, documentation updates complete.
+Release:
+	Bug fixes go to next version, documentation corrections continue. 
+
+
+#Version system#
+.xx
+Tenths position, major revision, breaks part relations across series.
+Hundreths position, minor revision, extensions, bug fixes, does not break part relations
+Hundreths position >, extensions, bug fixes, that break part relations

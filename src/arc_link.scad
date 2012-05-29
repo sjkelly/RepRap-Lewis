@@ -24,7 +24,7 @@ module arc_link(){
 	}
 }
 module arc_link_assembly(){
-	rotate([0,0,360*$t])
+	rotate([0,0,120*$t])
 	union(){
 		arc_link();
 		rotate([180,0,0])translate([-motor_shaft_diameter/2-nut_height, 0, -motor_shaft_length/2])rotate([0,90,0])nut();

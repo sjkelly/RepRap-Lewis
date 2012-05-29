@@ -21,7 +21,7 @@ module build_bed_assembly(){
 		rotate([0,0,i])translate([(sarrus_top_od+sarrus_top_id)/4,0,build_bed_thick+washer_thick])rotate([180,0,0])screw(build_bed_thick+washer_thick*2+lock_nut_height+sarrus_top_thick);
 		rotate([0,0,i])translate([(sarrus_top_od+sarrus_top_id)/4,0,build_bed_thick])washer();	
 		rotate([0,0,i])translate([(sarrus_top_od+sarrus_top_id)/4,0,-sarrus_top_thick-washer_thick])washer();
-		rotate([0,0,i])translate([(sarrus_top_od+sarrus_top_id)/4,0,-sarrus_top_thick-washer_thick-lock_nut_height])lock_nut();
+		rotate([0,0,i])translate([(sarrus_top_od+sarrus_top_id)/4,0,-sarrus_top_thick-washer_thick])rotate([180,0,0])lock_nut();
 		
 		}
 		translate([-sarrus_link_length/2,sarrus_top_id/2+sarrus_link_diameter/2+washer_diameter+1,build_bed_thick])sarrus_link();

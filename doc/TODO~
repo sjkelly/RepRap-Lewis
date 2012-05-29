@@ -1,0 +1,17 @@
+For:
+Version 0.10 ALPHA
+-Finish truss connections
+-Finish feet
+-Extruder
+-Electronics mounts
+-Lead nut plate
+
+Version 0.10 RELEASE
+-different stepper dimensions per axis
+-Support Mega, melzi, sanguinololu and printrboard foot prints
+-Truss broken up in two.
+
+Version 0.1x
+-Parser
+
+Version 0.20
