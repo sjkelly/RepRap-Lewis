@@ -11,8 +11,7 @@ module sarrus_bottom(){
 			translate([motor_flange_diameter/2,-bottom_truss_interface_width/2,0])cube([bottom_truss_interface_length,bottom_truss_interface_width,bottom_truss_interface_height]);
 			translate([-motor_flange_diameter/2-bottom_truss_interface_length,-bottom_truss_interface_width/2,0])cube([bottom_truss_interface_length,bottom_truss_interface_width,bottom_truss_interface_height]);
 			for(i = [0 : 90: 360]){
-			
-				rotate([0,0,i])translate([0,-sarrus_link_thick*3/2,0])cube([sarrus_top_od/2+sarrus_link_diameter,sarrus_link_thick*3,sarrus_top_thick]);
+				rotate([0,0,i])translate([0,-sarrus_link_thick*3/2,0])cube([sarrus_top_od/2+sarrus_link_diameter,sarrus_link_thick*3,sarrus_bottom_thick]);
 			}
 		}
 
@@ -28,6 +27,10 @@ module sarrus_bottom(){
 		}
 		
 		translate([0,0,-1])poly_cylinder(r=motor_flange_diameter/2, h = sarrus_bottom_thick+2);
+		translate([0,washer_diameter/2,sarrus_bottom_thick+nut_diameter])rotate([0,90,0])poly_cylinder(r=screw_diameter/2, h = motor_flange_diameter+bottom_truss_interface_length*2+eta*2,center=true);
+		translate([0,-washer_diameter/2,sarrus_bottom_thick+nut_diameter])rotate([0,90,0])poly_cylinder(r=screw_diameter/2, h = motor_flange_diameter+bottom_truss_interface_length*2+eta*2,center=true);
+		translate([0,washer_diameter/2,sarrus_bottom_thick+nut_diameter])rotate([0,90,0])cylinder(r=nut_diameter/2, h = motor_flange_diameter+nut_height*2,center=true,$fn=6);
+		translate([0,-washer_diameter/2,sarrus_bottom_thick+nut_diameter])rotate([0,90,0])cylinder(r=nut_diameter/2, h = motor_flange_diameter+nut_height*2,center=true,$fn=6);
 	}
 }
 
@@ -47,8 +50,10 @@ module sarrus_bottom_assembly(){
 			rotate([0,0,45+i])translate([motor_hole_spacing*sqrt(2)/2+lock_nut_height/2,washer_diameter/2+nut_apothem,sarrus_bottom_thick/2])rotate([0,-90,0])lock_nut();
 			rotate([0,0,45+i])translate([motor_hole_spacing*sqrt(2)/2+lock_nut_height/2,-washer_diameter/2-nut_apothem,sarrus_bottom_thick/2])rotate([0,-90,0])lock_nut();
 		}
-			
-
+		translate([motor_flange_diameter/2+nut_height,-washer_diameter/2,sarrus_bottom_thick+nut_diameter])rotate([0,-90,0])lock_nut();	
+		translate([motor_flange_diameter/2+nut_height,washer_diameter/2,sarrus_bottom_thick+nut_diameter])rotate([0,-90,0])lock_nut();	
+		translate([-motor_flange_diameter/2-nut_height,-washer_diameter/2,sarrus_bottom_thick+nut_diameter])rotate([0,90,0])lock_nut();	
+		translate([-motor_flange_diameter/2-nut_height,washer_diameter/2,sarrus_bottom_thick+nut_diameter])rotate([0,90,0])lock_nut();	
 	}
 }
 

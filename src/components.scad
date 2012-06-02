@@ -34,6 +34,15 @@ module motor(){
 	echo(str("--", motor," motor")); 
 }
 
+module e0motor(){
+		union(){
+			color("grey")translate([0,0,e0motor_length/2])cube([e0motor_width, e0motor_width, e0motor_length], center = true);
+			color("grey")translate([0,0,e0motor_length])cylinder(r=e0motor_flange_diameter/2, h = e0motor_flange_height);
+			color("silver")translate([0,0,e0motor_length+e0motor_flange_height])cylinder(r=e0motor_shaft_diameter/2, h = e0motor_shaft_length);
+		}
+	echo(str("--", e0motor," motor")); 
+}
+
 module screw(length){
 	difference(){
 		union(){
