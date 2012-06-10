@@ -2,6 +2,7 @@ include <measurements.scad>
 use <components.scad>
 use <polyholes.scad>
 use <./extensions/extruder.scad>
+use <./extensions/electronics_mount.scad>
 
 module foot(){
 	difference(){
@@ -53,6 +54,7 @@ module foot_assembly(){
 		rotate([0,0,225])translate([motor_width*sqrt(2)/2,-foot_width/2,0])foot();
 		rotate([0,0,315])translate([motor_width*sqrt(2)/2,-foot_width/2,0])foot();
 		translate([0,0,e0motor_width/2+foot_thick])rotate([-90,0,-45])translate([0,0,motor_width*sqrt(2)/2+foot_thick+washer_thick+screw_head_height])extruder_assembly();
+		rotate([0,0,-45])translate([0,-motor_width*sqrt(2)/2-foot_length/4,foot_thick*2])electronics_assembly();
 		for(i = [0:90:360]){
 			rotate([0,0,45+i])translate([motor_width*sqrt(2)/2+foot_thick+washer_thick,washer_diameter/2+nut_apothem,motor_length+sarrus_bottom_thick/2])rotate([0,-90,0])screw(foot_thick+motor_width*sqrt(2)/2-motor_hole_spacing*sqrt(2)/2);
 			rotate([0,0,45+i])translate([motor_width*sqrt(2)/2+foot_thick+washer_thick,-washer_diameter/2-nut_apothem,motor_length+sarrus_bottom_thick/2])rotate([0,-90,0])screw(foot_thick+motor_width*sqrt(2)/2-motor_hole_spacing*sqrt(2)/2);
