@@ -1,0 +1,55 @@
+<html>
+
+<head>
+	<title>RepRap Lewis BOM Parser</title>
+<head>
+
+<body>
+	<h1>Bill of Materials Parser</h1>
+	<br />
+	<textarea id="bom" rows="10"></textarea>
+
+	<button onclick="parseBom()" type="button">Parse</button>
+
+	<h2>Parsed Bill of Materials:</h2>
+
+	<p id="bomparsed"></p>
+
+	<script type="text/javascript">
+	function parseBom()
+	{
+		var bom;
+		var holder = new Array();
+		var output = "";
+		var q = 0;
+		var parts = new Array();
+		var p = 0;
+
+		function printBOMln(str, qty){
+			if(parts.indexOf(str) === -1){
+				parts[p] = str;
+				p++;
+				output = output + "(" + qty + ") "+ str.substr(2) + "<br />";
+				document.getElementById("bomparsed").innerHTML = output;
+			}
+		}
+
+		bom = document.getElementById("bom").value;
+		holder = bom.split("\"");
+		holder[0] = ""; //we don't need stuff before first echo
+		holder[holder.length-1] = ""; //we don't need the stuff at the end either
+
+		for(i = 0; i < holder.length; i++){
+			if(holder[i] === "\nECHO: ") holder[i] = "";
+			else if(holder[i].substr(0,2) === "--"){
+				for(j = 0; j < holder.length; j++){
+					if(holder[j] === holder[i]) q++;
+				}
+				printBOMln(holder[i],q);
+				q = 0;
+			}
+		}
+	}
+</script>
+</body>
+</html>
