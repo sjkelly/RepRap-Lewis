@@ -12,9 +12,11 @@ module arc_link(){
 		}
 		translate([arc_link_length-head_od/2,coupler_diameter/2,-eta])cube([head_od,head_od/2,arc_link_thick+eta*2]);
 		translate([arc_link_length,0,-eta])cylinder(r=head_id/2, h = arc_link_thick+eta*2);
-		translate([0,0,-1])poly_cylinder(r = motor_shaft_diameter/2, h = motor_shaft_length + 2);
-		translate([-motor_shaft_diameter/2-nut_height, -nut_apothem, -1])
-			cube([nut_height, nut_apothem*2, coupler_height/2+nut_diameter/2+1]);
+		translate([0,0,-eta])poly_cylinder(r = motor_shaft_diameter/2, h = motor_shaft_length + eta*2);
+		translate([-motor_shaft_diameter/2-nut_height,-nut_apothem,-eta])
+			cube([nut_height, nut_apothem*2, motor_shaft_length/2+eta]);
+		translate([-motor_shaft_diameter/2-nut_height,0,motor_shaft_length/2])
+			rotate([0,90,0])cylinder(r=nut_diameter/2, h= nut_height, $fn=6);
 		translate([0,0,motor_shaft_length/2])rotate([0,-90,0])
 			poly_cylinder(r= screw_diameter/2, h = coupler_diameter/2);
 		for(i = [0 : 60 : 360]){
