@@ -1,6 +1,7 @@
 include <measurements.scad>
 use <components.scad>
 use <polyholes.scad>
+use <./extensions/groove_mount.scad>
 
 module arc_link(){
 	difference(){
@@ -31,6 +32,8 @@ module arc_link_assembly(){
 		arc_link();
 		rotate([180,0,0])translate([-motor_shaft_diameter/2-nut_height, 0, -motor_shaft_length/2])rotate([0,90,0])nut();
 		rotate([180,0,0])translate([-coupler_diameter/2, 0, -motor_shaft_length/2])rotate([0,90,0])set_screw(coupler_diameter/2);
+		translate([build_radius/2,0,arc_link_thick])groove_mount();
+		
 	}
 }
 
