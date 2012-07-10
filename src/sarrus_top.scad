@@ -35,7 +35,7 @@ module sarrus_top(){
 module sarrus_top_assembly(){
 	union(){
 		sarrus_top();
-		translate([0,0,washer_thick+screw_head_height])rotate([0,0,30])lead_nut();
+		translate([0,0,washer_thick+screw_head_height])rotate([0,0,30])nut(lead_screw);
 		for(i = [0:90:360]){
 			rotate([0,0,i])translate([-sarrus_link_thick*3/2,-sarrus_top_od/2-sarrus_link_diameter/2,sarrus_link_diameter/2])rotate([d_sarrus_top,0,0])rotate([0,90,0])sarrus_link();
 			rotate([0,0,i])translate([sarrus_top_od/2+sarrus_link_diameter/2,sarrus_link_thick*5/2+washer_thick,sarrus_link_diameter/2])rotate([90,0,0])screw(sarrus_link_thick*4+washer_thick*2+lock_nut_height);

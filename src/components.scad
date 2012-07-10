@@ -6,7 +6,7 @@ $fn = 21;
 
 
 module nut(type = screw){
-	lscrew_array = (type=="M2") ? m2 : (type=="M2.5") ? m2_5 : (type=="M3") ? m3 : (type=="M4") ? m4 : (type=="M5") ? m5 : (type=="M6") ? m6 : (type=="M8") ? m8 : "error";
+	lscrew_array = get_screw_dims(type);
 
 	lscrew_diameter = lscrew_array[0];
 	lnut_diameter = lscrew_array[3] / cos(30);
@@ -21,7 +21,7 @@ module nut(type = screw){
 }
 
 module lock_nut(type = screw){
-	lscrew_array = (type=="M2") ? m2 : (type=="M2.5") ? m2_5 : (type=="M3") ? m3 : (type=="M4") ? m4 : (type=="M5") ? m5 : (type=="M6") ? m6 : (type=="M8") ? m8 : "error";
+	lscrew_array = get_screw_dims(type);
 
 	lscrew_diameter = lscrew_array[0];
 	lnut_diameter = lscrew_array[3] / cos(30);
@@ -58,8 +58,7 @@ module e0motor(){
 }
 
 module screw(length, type = screw){
-	lscrew_array = (type=="M2") ? m2 : (type=="M2.5") ? m2_5 : (type=="M3") ? m3 : (type=="M4") ? m4 : (type=="M5") ? m5 : (type=="M6") ? m6 : (type=="M8") ? m8 : "error";
-	
+	lscrew_array = get_screw_dims(type);
 
 	lscrew_diameter = lscrew_array[0];
 	lscrew_head_height = lscrew_array[1];
@@ -81,8 +80,7 @@ module screw(length, type = screw){
 }
 
 module set_screw(length, type = screw){
-	lscrew_array = (type=="M2") ? m2 : (type=="M2.5") ? m2_5 : (type=="M3") ? m3 : (type=="M4") ? m4 : (type=="M5") ? m5 : (type=="M6") ? m6 : (type=="M8") ? m8 : "error";
-	
+	lscrew_array = get_screw_dims(type);
 
 	lscrew_diameter = lscrew_array[0];
 	lscrew_head_height = lscrew_array[1];
@@ -101,8 +99,7 @@ module set_screw(length, type = screw){
 }
 
 module washer(type = screw){
-	lscrew_array = (type=="M2") ? m2 : (type=="M2.5") ? m2_5 : (type=="M3") ? m3 : (type=="M4") ? m4 : (type=="M5") ? m5 : (type=="M6") ? m6 : (type=="M8") ? m8 : "error";
-	
+	lscrew_array = get_screw_dims(type);
 
 	lscrew_diameter = lscrew_array[0];
 	lwasher_diameter = lscrew_array[6];
@@ -127,18 +124,6 @@ module lead_screw(length){
 	echo(str("--", lead_screw, "x", round(length), "mm lead screw")); 
 }
 
-//this can be removed
-module lead_nut(){
-	difference(){
-		union(){
-			color("silver")cylinder(r = lead_nut_diameter/2, h = lead_nut_height, $fn = 6);
-		}
-		color("silver")translate([0,0,-eta])
-			cylinder(r = lead_screw_diameter/2, h = lead_nut_height + eta* 2);
-	}
-	echo(str("--", lead_screw," lead nut")); 
-}
-
 module extruder_gear(){
 	color("silver")difference(){
 		color("silver")union(){
@@ -158,5 +143,3 @@ module plunger(radius,length){
 	echo(str("--",radius*2,"mm diameter ", round(length), "mm long PTFE plunger")); 
 }
 
-washer("M5");
-translate([5,0,0])washer();
