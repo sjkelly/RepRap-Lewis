@@ -22,6 +22,8 @@ pololu_35x26 = [35.2, 26, 26, 3, 22, 2, 21, 5];
 //[[x,y,z],etc..]
 melzi = [[0,0,0],[200,0,0],[0,42,0],[200,42,0]];
 mega = [[0,0,0],[80,0,0],[1.3,48.3,0],[76.2,48.3,0]];//second entry needs fixing
+printrboard = [[0,0,0],[91,0,0],[0,52.75,0],[91,52.75,0]];
+sanguinololu = [[0,0,0],[94,0,0],[0,44,0],[94,44,0]];
 
 //extruder drive gear dimensions arrays
 //[outer diameter, inner diameter, hobb diameter, teeth diameter(torus inside to inside), teeth offset(from bottom), height]
@@ -45,7 +47,7 @@ motor_array = (motor=="NEMA8") ? nema8 : (motor=="NEMA11") ? nema11 : (motor=="N
 e0motor_array = (e0motor=="NEMA8") ? nema8 : (e0motor=="NEMA11") ? nema11 : (e0motor=="NEMA14") ? nema14 : (e0motor=="NEMA17") ? nema17 : (e0motor=="Pololu 35x26") ? pololu_35x26 :"error";
 
 //assign electronics
-electronics_array = (electronics=="Melzi") ? melzi : (electronics=="Mega") ? mega :"error";
+electronics_array = (electronics=="Melzi") ? melzi : (electronics=="Mega") ? mega : (electronics=="Printrboard") ? printrboard : (electronics=="Sanguinololu") ? sanguinololu :"error";
 
 extruder_gear_array = (extruder_gear=="Arcol8x5") ? arcol8x5 : (extruder_gear=="Arcol11x8") ? arcol11x8 : (extruder_gear=="Arcol11x5") ? arcol11x5 : (extruder_gear=="Arcol13x8") ? arcol13x8 : "error";
 

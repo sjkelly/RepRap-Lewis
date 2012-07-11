@@ -12,7 +12,7 @@ Check out http://reprap.org/wiki/Lewis for more information.
 
 //What you bring to the party
 	//Thickness of the build bed in millimeters
-	build_bed_thick = 4; //in millimeters
+	build_bed_thick = 6; //in millimeters
 
 	//Screw standard that will be used throughout the printer.
 	//Values are "M2", "M2.5", "M3", "M4", "M5", "M6", "M8" 
@@ -20,10 +20,10 @@ Check out http://reprap.org/wiki/Lewis for more information.
 
 	//Screw standard used for the lead screw. Size equal to shaft diameter is recommended
 	//Values are "M2", "M2.5", "M3", "M4", "M5", "M6", "M8"
-	lead_screw = "M4"; //Keep capitalization and quotes
+	lead_screw = "M5"; //Keep capitalization and quotes
 
 	//Electronics used on the printer
-	//Values are "Melzi"
+	//Values are "Melzi", "Mega", "Printrboard", "Sanguinololu"
 	electronics = "Melzi"; //Keep capitalization, quotes and spacing
 
 	//The stepper motors used on the printer.
@@ -33,7 +33,7 @@ Check out http://reprap.org/wiki/Lewis for more information.
 
 	e0motor = "NEMA17";
 
-	e_gear_diameter = 8;
-
-	filament_diameter = 1.8;
+	//The extruder gear used to drive the filament
+	//Supported values are "Arcol8x5", "Arcol11x5", "Arcol11x8", "Arcol13x8"
+	extruder_gear = "Arcol8x5";  //Keep capitalization, quotes and spacing
 
