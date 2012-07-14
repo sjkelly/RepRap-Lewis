@@ -1,16 +1,29 @@
 For:
 Version 0.10 ALPHA
--Finish feet
--Extruder
--Electronics mounts
+-Octave simulation.
+-extruder
+	-Generate plunger
 
 Version 0.10 RELEASE
 -different stepper dimensions per axis
--Support Mega, melzi, sanguinololu and printrboard foot prints
 -Truss broken up in two.
--Octave simulation. 
+-countersink nuts where possible for fewer washers and shorter screw lengths
+-MAKE IT A REPRAP
+-insulator cap
+-working level adjustment on first link
+
+-*Sarrus linkages should be bent slightly at all times... how much?
+
+-render statements so preview is smoother.
 
 Version 0.1x
--Parser
+-leaf spring extruder
 
 Version 0.20
+-triangles everwhere
+-Switch to hex head screws... we can print wrenches!
+-We should take into account hot end lengths and stuff.
+
+Potential Bugs and Cleanups to source
+-lead screw length
+-electronics mounts
