@@ -1,5 +1,6 @@
-include <../relations.scad>
-include <../../../Magpie/magpie.scad>
+include <../measurements.scad>
+use <../components.scad>
+use <../polyholes.scad>
 
 module electronics(){
 	difference(){
@@ -72,10 +73,10 @@ module electronics_assembly(){
 		translate([0,0,electronics_thick*2])electronics();
 		electronics_mount_l();
 		electronics_mount_r();
-		translate(electronics_holes[3]/2+[0,-foot_length/4+foot_thick,electronics_thick+washer_thick])rotate([180,0,0])screw(electronics_thick+washer_thick+foot_thick*2,screw);
-		translate(electronics_holes[3]/2+[0,foot_length/4+foot_thick,electronics_thick+washer_thick])rotate([180,0,0])screw(electronics_thick+washer_thick+foot_thick*2,screw);
-		translate(electronics_holes[3]/2+[0,-foot_length/4+foot_thick,electronics_thick+washer_thick])rotate([180,0,0])washer(screw);
-		translate(electronics_holes[3]/2+[0,foot_length/4+foot_thick,electronics_thick+washer_thick])rotate([180,0,0])washer(screw);
+		translate(electronics_holes[3]/2+[0,-foot_length/4+foot_thick,electronics_thick+washer_thick])rotate([180,0,0])screw(electronics_thick+washer_thick+foot_thick*2);
+		translate(electronics_holes[3]/2+[0,foot_length/4+foot_thick,electronics_thick+washer_thick])rotate([180,0,0])screw(electronics_thick+washer_thick+foot_thick*2);
+		translate(electronics_holes[3]/2+[0,-foot_length/4+foot_thick,electronics_thick+washer_thick])rotate([180,0,0])washer();
+		translate(electronics_holes[3]/2+[0,foot_length/4+foot_thick,electronics_thick+washer_thick])rotate([180,0,0])washer();
 	}
 }
 

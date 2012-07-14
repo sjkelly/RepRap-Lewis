@@ -27,10 +27,10 @@ module sarrus_link_assembly(){
 	union(){
 		sarrus_link();
 		translate([sarrus_link_length,0,-washer_thick])
-			screw(sarrus_link_thick*4+lock_nut_height+washer_thick*2,screw);
-		translate([sarrus_link_length,0,-washer_thick])washer(screw);
-		translate([sarrus_link_length,0,sarrus_link_thick*4])washer(screw);
-		translate([sarrus_link_length,0,washer_thick+sarrus_link_thick*4])lock_nut(screw);
+			screw(sarrus_link_thick*4+lock_nut_height+washer_thick*2);
+		translate([sarrus_link_length,0,-washer_thick])washer();
+		translate([sarrus_link_length,0,sarrus_link_thick*4])washer();
+		translate([sarrus_link_length,0,washer_thick+sarrus_link_thick*4])lock_nut();
 	}
 }
 

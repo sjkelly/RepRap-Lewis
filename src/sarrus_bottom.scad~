@@ -42,19 +42,19 @@ module sarrus_bottom_assembly(){
 		sarrus_bottom();
 	
 		for(i = [0:90:360]){
-			rotate([0,0,i])translate([motor_hole_spacing/2,motor_hole_spacing/2,sarrus_bottom_thick])washer(screw);
-			rotate([0,0,i])translate([motor_hole_spacing/2,motor_hole_spacing/2,sarrus_bottom_thick+washer_thick])rotate([180,0,0])screw(sarrus_bottom_thick+washer_thick+motor_hole_engagement,screw);
+			rotate([0,0,i])translate([motor_hole_spacing/2,motor_hole_spacing/2,sarrus_bottom_thick])washer();
+			rotate([0,0,i])translate([motor_hole_spacing/2,motor_hole_spacing/2,sarrus_bottom_thick+washer_thick])rotate([180,0,0])screw(sarrus_bottom_thick+washer_thick+motor_hole_engagement);
 			rotate([0,0,i])translate([sarrus_top_od/2+sarrus_link_diameter/2,sarrus_link_thick*5/2,sarrus_link_diameter/2])rotate([90,d_sarrus_bottom,0])sarrus_link_assembly();
-			rotate([0,0,i])translate([sarrus_top_od/2+sarrus_link_diameter/2,sarrus_link_thick*5/2+washer_thick,sarrus_link_diameter/2])rotate([90,0,0])screw(sarrus_link_thick*4+washer_thick+lock_nut_height,screw);
-			rotate([0,0,i])translate([sarrus_top_od/2+sarrus_link_diameter/2,sarrus_link_thick*5/2+washer_thick,sarrus_link_diameter/2])rotate([90,0,0])washer(screw);
-			rotate([0,0,i])translate([sarrus_top_od/2+sarrus_link_diameter/2,-sarrus_link_thick*3/2,sarrus_link_diameter/2])rotate([90,0,0])lock_nut(screw);
-			rotate([0,0,45+i])translate([motor_hole_spacing*sqrt(2)/2+lock_nut_height/2,washer_diameter/2+nut_apothem,sarrus_bottom_thick/2])rotate([0,-90,0])lock_nut(screw);
-			rotate([0,0,45+i])translate([motor_hole_spacing*sqrt(2)/2+lock_nut_height/2,-washer_diameter/2-nut_apothem,sarrus_bottom_thick/2])rotate([0,-90,0])lock_nut(screw);
+			rotate([0,0,i])translate([sarrus_top_od/2+sarrus_link_diameter/2,sarrus_link_thick*5/2+washer_thick,sarrus_link_diameter/2])rotate([90,0,0])screw(sarrus_link_thick*4+washer_thick+lock_nut_height);
+			rotate([0,0,i])translate([sarrus_top_od/2+sarrus_link_diameter/2,sarrus_link_thick*5/2+washer_thick,sarrus_link_diameter/2])rotate([90,0,0])washer();
+			rotate([0,0,i])translate([sarrus_top_od/2+sarrus_link_diameter/2,-sarrus_link_thick*3/2,sarrus_link_diameter/2])rotate([90,0,0])lock_nut();
+			rotate([0,0,45+i])translate([motor_hole_spacing*sqrt(2)/2+lock_nut_height/2,washer_diameter/2+nut_apothem,sarrus_bottom_thick/2])rotate([0,-90,0])lock_nut();
+			rotate([0,0,45+i])translate([motor_hole_spacing*sqrt(2)/2+lock_nut_height/2,-washer_diameter/2-nut_apothem,sarrus_bottom_thick/2])rotate([0,-90,0])lock_nut();
 		}
-		translate([motor_flange_diameter/2+nut_height,-washer_diameter/2,sarrus_bottom_thick+nut_diameter])rotate([0,-90,0])lock_nut(screw);	
-		translate([motor_flange_diameter/2+nut_height,washer_diameter/2,sarrus_bottom_thick+nut_diameter])rotate([0,-90,0])lock_nut(screw);	
-		translate([-motor_flange_diameter/2-nut_height,-washer_diameter/2,sarrus_bottom_thick+nut_diameter])rotate([0,90,0])lock_nut(screw);	
-		translate([-motor_flange_diameter/2-nut_height,washer_diameter/2,sarrus_bottom_thick+nut_diameter])rotate([0,90,0])lock_nut(screw);	
+		translate([motor_flange_diameter/2+nut_height,-washer_diameter/2,sarrus_bottom_thick+nut_diameter])rotate([0,-90,0])lock_nut();	
+		translate([motor_flange_diameter/2+nut_height,washer_diameter/2,sarrus_bottom_thick+nut_diameter])rotate([0,-90,0])lock_nut();	
+		translate([-motor_flange_diameter/2-nut_height,-washer_diameter/2,sarrus_bottom_thick+nut_diameter])rotate([0,90,0])lock_nut();	
+		translate([-motor_flange_diameter/2-nut_height,washer_diameter/2,sarrus_bottom_thick+nut_diameter])rotate([0,90,0])lock_nut();	
 	}
 }
 

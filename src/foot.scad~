@@ -55,7 +55,7 @@ module extruder_foot_assembly(){
 	extruder_foot();
 	translate([e0motor_width/2/sin(45),e0motor_width/2/sin(45),foot_thick])rotate([-90,30,45])translate([-e0motor_width/2,-e0motor_width/2,-e0motor_length-extruder_thick])extruder_assembly();
 	translate([e0motor_width/2/sin(45),e0motor_width/2/sin(45),foot_thick])rotate([-90,30,45])translate([-e0motor_width/2,-e0motor_width/2,-e0motor_length-extruder_thick])translate([e0motor_hole_spacing/2,e0motor_hole_spacing/2,e0motor_length+extruder_thick/2+washer_thick])rotate([0,180,0])screw(extruder_thick/2+washer_thick+e0motor_hole_engagement);
-		translate([e0motor_width/2/sin(45),e0motor_width/2/sin(45),foot_thick])rotate([-90,30,45])translate([-e0motor_width/2,-e0motor_width/2,-e0motor_length-extruder_thick])translate([e0motor_hole_spacing/2,e0motor_hole_spacing/2,e0motor_length+extruder_thick/2])washer(screw);
+		translate([e0motor_width/2/sin(45),e0motor_width/2/sin(45),foot_thick])rotate([-90,30,45])translate([-e0motor_width/2,-e0motor_width/2,-e0motor_length-extruder_thick])translate([e0motor_hole_spacing/2,e0motor_hole_spacing/2,e0motor_length+extruder_thick/2])washer();
 
 }
 
@@ -67,10 +67,10 @@ module foot_assembly(){
 		rotate([0,0,315])translate([motor_width*sqrt(2)/2,-foot_width/2,0])foot();
 		rotate([0,0,-45])translate([0,-motor_width*sqrt(2)/2-foot_length/4,foot_thick*2])electronics_assembly();
 		for(i = [0:90:360]){
-			rotate([0,0,45+i])translate([motor_width*sqrt(2)/2+foot_thick+washer_thick,washer_diameter/2+nut_apothem,motor_length+sarrus_bottom_thick/2])rotate([0,-90,0])screw(foot_thick+motor_width*sqrt(2)/2-motor_hole_spacing*sqrt(2)/2,screw);
-			rotate([0,0,45+i])translate([motor_width*sqrt(2)/2+foot_thick+washer_thick,-washer_diameter/2-nut_apothem,motor_length+sarrus_bottom_thick/2])rotate([0,-90,0])screw(foot_thick+motor_width*sqrt(2)/2-motor_hole_spacing*sqrt(2)/2,screw);
-			rotate([0,0,45+i])translate([motor_width*sqrt(2)/2+foot_thick+washer_thick,washer_diameter/2+nut_apothem,motor_length+sarrus_bottom_thick/2])rotate([0,-90,0])washer(screw);
-			rotate([0,0,45+i])translate([motor_width*sqrt(2)/2+foot_thick+washer_thick,-washer_diameter/2-nut_apothem,motor_length+sarrus_bottom_thick/2])rotate([0,-90,0])washer(screw);
+			rotate([0,0,45+i])translate([motor_width*sqrt(2)/2+foot_thick+washer_thick,washer_diameter/2+nut_apothem,motor_length+sarrus_bottom_thick/2])rotate([0,-90,0])screw(foot_thick+motor_width*sqrt(2)/2-motor_hole_spacing*sqrt(2)/2);
+			rotate([0,0,45+i])translate([motor_width*sqrt(2)/2+foot_thick+washer_thick,-washer_diameter/2-nut_apothem,motor_length+sarrus_bottom_thick/2])rotate([0,-90,0])screw(foot_thick+motor_width*sqrt(2)/2-motor_hole_spacing*sqrt(2)/2);
+			rotate([0,0,45+i])translate([motor_width*sqrt(2)/2+foot_thick+washer_thick,washer_diameter/2+nut_apothem,motor_length+sarrus_bottom_thick/2])rotate([0,-90,0])washer();
+			rotate([0,0,45+i])translate([motor_width*sqrt(2)/2+foot_thick+washer_thick,-washer_diameter/2-nut_apothem,motor_length+sarrus_bottom_thick/2])rotate([0,-90,0])washer();
 		}
 	
 	}

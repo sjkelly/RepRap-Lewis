@@ -1,5 +1,6 @@
-include <../relations.scad>
-include <../../../Magpie/magpie.scad>
+include <../measurements.scad>
+use <../components.scad>
+use <../polyholes.scad>
 
 module groove_mount(){
 	color("khaki")linear_extrude(height=4.67)difference(){
