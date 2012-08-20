@@ -6,8 +6,7 @@ lead_screw_array = get_screw_dims(lead_screw);
 motor_array = get_stepper_dims(motor);
 e0motor_array = get_stepper_dims(e0motor);
 electronics_array = get_electronics_holes(electronics);
-
-extruder_gear_array = (extruder_gear=="Arcol8x5") ? arcol8x5 : (extruder_gear=="Arcol11x8") ? arcol11x8 : (extruder_gear=="Arcol11x5") ? arcol11x5 : (extruder_gear=="Arcol13x8") ? arcol13x8 : "error";
+extruder_gear_array = get_extruder_gear_dims(extruder_gear);
 
 //echo back the configuration
 echo("RepRap Lewis build configuration..."); 
@@ -36,48 +35,48 @@ phi = 1.618;
 eta = 0.1; //used to eliminate coincident faces
 
 //Assign more verbose variables
-screw_diameter = screw_array[0];
-screw_head_height = screw_array[1];
-screw_head_diameter = screw_array[2];
+screw_diameter = screw_array[DIAMETER];
+screw_head_height = screw_array[CAP_HEAD_HEIGHT];
+screw_head_diameter = screw_array[CAP_HEAD_DIAMETER];
 
-nut_apothem = screw_array[3] / 2;
-nut_diameter = screw_array[3] / cos(30);
-lock_nut_height = screw_array[4];
-nut_height = screw_array[5];
+nut_apothem = screw_array[NUT_WIDTH] / 2;
+nut_diameter = screw_array[NUT_WIDTH] / cos(30);
+lock_nut_height = screw_array[LOCK_NUT_HEIGHT];
+nut_height = screw_array[NUT_HEIGHT];
 
-washer_diameter = screw_array[6];
-washer_thick = screw_array[7];
+washer_diameter = screw_array[WASHER_OD];
+washer_thick = screw_array[WASHER_HEIGHT];
 
-lead_nut_apothem = lead_screw_array[3] / 2;
-lead_nut_diameter = lead_screw_array[3] / cos(30);
-lead_nut_height = lead_screw_array[5];
-lead_screw_diameter = lead_screw_array[0];
-lead_screw_length = 00;
+lead_nut_apothem = lead_screw_array[NUT_WIDTH] / 2;
+lead_nut_diameter = lead_screw_array[NUT_WIDTH] / cos(30);
+lead_nut_height = lead_screw_array[NUT_HEIGHT];
+lead_screw_diameter = lead_screw_array[DIAMETER];
+lead_screw_length = 0;
 
-motor_width = motor_array[0];
-motor_length = motor_array[1];
-motor_hole_spacing = motor_array[2];
-motor_hole_diameter = motor_array[3];
-motor_flange_diameter = motor_array[4];
-motor_flange_height = motor_array[5];
-motor_shaft_length = motor_array[6];
-motor_shaft_diameter = motor_array[7];
+motor_width = motor_array[WIDTH];
+motor_length = motor_array[LENGTH];
+motor_hole_spacing = motor_array[HOLE_SPACING];
+motor_hole_diameter = motor_array[HOLE_DIAMETER];
+motor_flange_diameter = motor_array[FLANGE_DIAMETER];
+motor_flange_height = motor_array[FLANGE_HEIGHT];
+motor_shaft_length = motor_array[SHAFT_LENGTH];
+motor_shaft_diameter = motor_array[SHAFT_DIAMETER];
 motor_hole_engagement = motor_hole_diameter *1.5;
 motor_total_length = motor_length + motor_shaft_length + motor_flange_height;
 
-e0motor_width = e0motor_array[0];
-e0motor_length = e0motor_array[1];
-e0motor_hole_spacing = e0motor_array[2];
-e0motor_hole_diameter = e0motor_array[3];
-e0motor_flange_diameter = e0motor_array[4];
-e0motor_flange_height = e0motor_array[5];
-e0motor_shaft_length = e0motor_array[6];
-e0motor_shaft_diameter = e0motor_array[7];
+e0motor_width = e0motor_array[WIDTH];
+e0motor_length = e0motor_array[LENGTH];
+e0motor_hole_spacing = e0motor_array[HOLE_SPACING];
+e0motor_hole_diameter = e0motor_array[HOLE_DIAMETER];
+e0motor_flange_diameter = e0motor_array[FLANGE_DIAMETER];
+e0motor_flange_height = e0motor_array[FLANGE HEIGHT];
+e0motor_shaft_length = e0motor_array[SHAFT_LENGTH];
+e0motor_shaft_diameter = e0motor_array[SHAFT_DIAMETER];
 e0motor_hole_engagement = e0motor_hole_diameter *1.5;
 e0motor_total_length = e0motor_length + e0motor_shaft_length + e0motor_flange_height;
 
 electronics_holes = electronics_array;
-electronics_thick = screw_head_height*phi;
+electronics_thick = screw_head_height * phi;
 
 coupler_height = motor_shaft_length * 1.5;
 coupler_diameter = (motor_shaft_diameter > lead_screw_diameter) ? motor_shaft_diameter * 3 : lead_screw_diameter * 3;
@@ -118,8 +117,8 @@ head_id = build_radius/4;
 head_od = head_id + screw_diameter * 5;
 
 foot_thick = lock_nut_height;
-foot_width = washer_diameter+nut_apothem*6;
-foot_length = build_radius-motor_width*sqrt(2)/2;
+foot_width = washer_diameter+nut_apothem * 6;
+foot_length = build_radius-motor_width * sqrt(2)/2;
 foot_height = motor_length + sarrus_bottom_thick;
 
 extruder_gear_od = extruder_gear_array[0];
