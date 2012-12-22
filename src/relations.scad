@@ -10,7 +10,7 @@ electronics_array = get_electronics_holes(electronics);
 extruder_gear_array = (extruder_gear=="Arcol8x5") ? arcol8x5 : (extruder_gear=="Arcol11x8") ? arcol11x8 : (extruder_gear=="Arcol11x5") ? arcol11x5 : (extruder_gear=="Arcol13x8") ? arcol13x8 : "error";
 
 //echo back the configuration
-echo("RepRap Lewis build configuration..."); 
+echo("RepRap Lewis build configuration...");
 
 if(screw_array == "error")echo("--Error : invalid screw");
 else echo(str("--Screw =  ",screw));
@@ -98,7 +98,7 @@ sarrus_link_length = (build_height + motor_shaft_length + motor_flange_height + 
 sarrus_link_thick = screw_diameter * phi;
 
 sarrus_top_thick = sarrus_link_diameter/2*sqrt(2)+ sarrus_link_diameter/2;
- 
+
 truss_length = motor_flange_height+motor_shaft_length+build_height+coupler_height/2+sarrus_top_thick+build_bed_thick+motor_length;
 truss_width = motor_width;
 truss_height = motor_width * sqrt(2)/2 - motor_width/2;

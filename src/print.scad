@@ -16,7 +16,7 @@ use <extensions/electronics_mount.scad>
 //truss_top();
 //truss();
 //rotate([180,0,0])sarrus_top();
-//sarrus_link();
+rotate([90,0,0])sarrus_link();
 //coupler();
 //sweep_link();
 //arc_link();
@@ -24,4 +24,4 @@ use <extensions/electronics_mount.scad>
 //rotate([90,0,0])foot();
 //electronics_mount_l();
 //electronics_mount_r();
-extruder_foot();
+//extruder_foot();
