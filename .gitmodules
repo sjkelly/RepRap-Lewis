@@ -1,0 +1,3 @@
+[submodule "src/Magpie"]
+	path = src/Magpie
+	url = https://github.com/sjkelly/Magpie.git
