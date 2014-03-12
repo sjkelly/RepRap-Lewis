@@ -1,5 +1,5 @@
 include <configuration.scad>
-include <../../Magpie/magpie.scad>
+include <./Magpie/magpie.scad>
 
 screw_array = get_screw_dims(screw);
 lead_screw_array = get_screw_dims(lead_screw);
@@ -80,7 +80,7 @@ electronics_holes = electronics_array;
 electronics_thick = screw_head_height*phi;
 
 coupler_height = motor_shaft_length * 1.5;
-coupler_diameter = (motor_shaft_diameter > lead_screw_diameter) ? motor_shaft_diameter * 3 : lead_screw_diameter * 3;
+coupler_diameter = (motor_shaft_diameter > lead_screw_diameter) ? motor_shaft_diameter * 3.5 : lead_screw_diameter * 3.5;
 
 sarrus_top_id = motor_width * sqrt(2) + 2;
 sarrus_top_od = sarrus_top_id + 2 + nut_diameter*2.5;
@@ -103,6 +103,7 @@ truss_length = motor_flange_height+motor_shaft_length+build_height+coupler_heigh
 truss_width = motor_width;
 truss_height = motor_width * sqrt(2)/2 - motor_width/2;
 truss_radius = motor_width * sqrt(2)/2;
+truss_support_length = motor_shaft_length + motor_flange_height+build_height+sarrus_top_thick;
 
 truss_top_thick = screw_diameter * 3;
 

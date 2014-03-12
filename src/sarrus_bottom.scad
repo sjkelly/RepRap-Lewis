@@ -1,5 +1,5 @@
 include <relations.scad>
-include <../../Magpie/magpie.scad>
+include <./Magpie/magpie.scad>
 use <sarrus_link.scad>
 
 module sarrus_bottom()
@@ -66,4 +66,4 @@ module sarrus_bottom_assembly()
   }
 }
 
-sarrus_bottom_assembly();
+sarrus_bottom();

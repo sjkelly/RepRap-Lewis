@@ -1,5 +1,5 @@
 include <relations.scad>
-include <../../Magpie/magpie.scad>
+include <./Magpie/magpie.scad>
 
 module truss()
 {
@@ -12,14 +12,11 @@ module truss()
         cube([truss_length, truss_width, truss_height]);
         translate([-eta,truss_width/2,-truss_radius+truss_height])rotate([0,90,0])cylinder(r = truss_radius, h = truss_length + eta *2);
       }
+      translate([bottom_truss_interface_height-sarrus_bottom_thick,truss_width/2-bottom_truss_interface_width/2,-bottom_truss_interface_length])cube([truss_support_length,bottom_truss_interface_width, bottom_truss_interface_length]);
     }
-    translate([nut_diameter,truss_width/2+washer_diameter/2,truss_height*3/4])poly_cylinder(r=washer_diameter/2, h= truss_height/2);
-    translate([nut_diameter,truss_width/2-washer_diameter/2,truss_height*3/4])poly_cylinder(r=washer_diameter/2, h= truss_height/2);
+    translate([-eta,0,truss_height*2/3])cube([truss_length+eta*2, truss_width, truss_height]);
     translate([nut_diameter,truss_width/2+washer_diameter/2,-eta])poly_cylinder(r=screw_diameter/2, h= truss_height+eta*2);
     translate([nut_diameter,truss_width/2-washer_diameter/2,-eta])poly_cylinder(r=screw_diameter/2, h= truss_height+eta*2);
-
-    translate([truss_length-motor_length-truss_top_thick/2,truss_width/2+motor_hole_spacing/2-screw_diameter,truss_height*2/3])poly_cylinder(r=washer_diameter/2, h= truss_height/2);
-    translate([truss_length-motor_length-truss_top_thick/2,truss_width/2-motor_hole_spacing/2+screw_diameter,truss_height*2/3])poly_cylinder(r=washer_diameter/2, h= truss_height/2);
     translate([truss_length-motor_length-truss_top_thick/2,truss_width/2+motor_hole_spacing/2-screw_diameter,-eta])poly_cylinder(r=screw_diameter/2, h= truss_height+eta*2);
     translate([truss_length-motor_length-truss_top_thick/2,truss_width/2-motor_hole_spacing/2+screw_diameter,-eta])poly_cylinder(r=screw_diameter/2, h= truss_height+eta*2);
 
@@ -43,4 +40,4 @@ module truss_assembly()
   }
 }
 
-truss_assembly();
+truss();

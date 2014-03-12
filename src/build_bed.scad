@@ -1,5 +1,5 @@
 include <relations.scad>
-include <../../Magpie/magpie.scad>
+include <./Magpie/magpie.scad>
 use <sarrus_link.scad>
 
 module build_bed()
@@ -29,4 +29,4 @@ module build_bed_assembly()
 
     }
 }
-build_bed_assembly();
+build_bed();

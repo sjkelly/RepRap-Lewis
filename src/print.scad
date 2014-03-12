@@ -9,19 +9,21 @@ use <arc_link.scad>
 use <truss.scad>
 use <foot.scad>
 use <extensions/electronics_mount.scad>
+use <extensions/extruder.scad>
 
 // parts oriented and multiplied in all different ways
 
 //sarrus_bottom();
 //truss_top();
-//truss();
+//rotate([180,0,0])truss();
 //rotate([180,0,0])sarrus_top();
-rotate([90,0,0])sarrus_link();
+//rotate([90,0,0])sarrus_link();
 //coupler();
-//sweep_link();
+sweep_link();
 //arc_link();
 //build_bed();
 //rotate([90,0,0])foot();
 //electronics_mount_l();
 //electronics_mount_r();
 //extruder_foot();
+//rotate([180,0,0])extruder();

@@ -1,5 +1,5 @@
 include <../relations.scad>
-include <../../../Magpie/magpie.scad>
+include <../Magpie/magpie.scad>
 
 module electronics()
 {

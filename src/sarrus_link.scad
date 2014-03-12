@@ -1,5 +1,5 @@
 include <relations.scad>
-include <../../Magpie/magpie.scad>
+include <./Magpie/magpie.scad>
 
 module sarrus_link()
 {
@@ -40,4 +40,4 @@ module sarrus_link_assembly()
   }
 }
 
-sarrus_link_assembly();
+sarrus_link();

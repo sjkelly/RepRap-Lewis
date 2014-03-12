@@ -1,5 +1,5 @@
 include <relations.scad>
-include <../../Magpie/magpie.scad>
+include <./Magpie/magpie.scad>
 use <./extensions/extruder.scad>
 use <./extensions/electronics_mount.scad>
 
@@ -102,5 +102,6 @@ module foot_rounder()
 
 }
 
-foot_assembly();
+foot();
+//foot_assembly();
 //extruder_foot_assembly();

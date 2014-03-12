@@ -1,5 +1,5 @@
 include <../relations.scad>
-include <../../../Magpie/magpie.scad>
+include <../Magpie/magpie.scad>
 
 module extruder()
 {
@@ -19,8 +19,10 @@ module extruder()
     translate([e0motor_width-(e0motor_width-e0motor_hole_spacing)/2-m4[5],e0motor_width/2-extruder_gear_od/2-filament_diameter/2-m4[3]/2,-eta])cube([m4[5],m4[3],extruder_thick/2+eta]);
     translate([e0motor_width-(e0motor_width-e0motor_hole_spacing)/2-m4[5],e0motor_width/2-extruder_gear_od/2-filament_diameter/2,extruder_thick/2])rotate([0,90,0])cylinder(r=m4[3]/cos(30)/2,h=m4[5],$fn=6);
     translate([e0motor_width/2,-eta,extruder_thick/2])rotate([-90,0,0])poly_cylinder(r=screw_diameter/2, h = e0motor_width/2 + eta*2);
-    translate([e0motor_width/2-nut_apothem,0,-eta])cube([nut_apothem*2,lock_nut_height,extruder_thick/2+eta]);
-    translate([e0motor_width/2,0,extruder_thick/2])rotate([-90,30,0])cylinder(r=nut_diameter/2, h=lock_nut_height, $fn=6);
+    translate([e0motor_width/2-nut_apothem,e0motor_width/2-extruder_gear_od/2-filament_diameter/2-10-lock_nut_height,-eta])cube([nut_apothem*2,lock_nut_height,extruder_thick/2+eta]);
+    translate([e0motor_width/2,e0motor_width/2-extruder_gear_od/2-filament_diameter/2-10,extruder_thick/2])rotate([90,30,0])cylinder(r=nut_diameter/2, h=lock_nut_height, $fn=6);
+    translate([e0motor_width/2,e0motor_width/2-extruder_gear_od/2-filament_diameter/2-5,extruder_thick*1/3])poly_cylinder(r=5, h=extruder_thick/3);
+    translate([e0motor_width/2-5,e0motor_width/2-extruder_gear_od/2-filament_diameter/2-5,extruder_thick*1/3])cube([10,10,extruder_thick/3]);
   }
 }
 
@@ -36,4 +38,4 @@ module extruder_assembly()
   }
 }
 
-extruder_assembly();
+extruder();

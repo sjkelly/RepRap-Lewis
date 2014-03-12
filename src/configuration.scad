@@ -24,7 +24,7 @@ lead_screw = "M5"; //Keep capitalization and quotes
 
 //Electronics used on the printer
 //Values are "Melzi", "Mega", "Printrboard", "Sanguinololu"
-electronics = "Melzi"; //Keep capitalization, quotes and spacing
+electronics = "Sanguinololu"; //Keep capitalization, quotes and spacing
 
 //The stepper motors used on the printer.
 //Values are "NEMA8", "NEMA11", "NEMA14", "NEMA17"

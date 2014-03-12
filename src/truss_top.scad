@@ -1,5 +1,5 @@
 include <relations.scad>
-include <../../Magpie/magpie.scad>
+include <./Magpie/magpie.scad>
 
 module truss_top()
 {
@@ -45,4 +45,4 @@ module truss_top_assembly()
   }
 }
 
-truss_top_assembly();
+truss_top();

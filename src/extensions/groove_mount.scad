@@ -1,9 +1,9 @@
 include <../relations.scad>
-include <../../../Magpie/magpie.scad>
+include <../Magpie/magpie.scad>
 
 module groove_mount()
 {
-  color("khaki")linear_extrude(height=4.67)difference()
+  difference()
   {
     union()
     {
@@ -19,6 +19,10 @@ module groove_mount()
     circle(r=insulator_groove_diameter/2);
     translate([-insulator_groove_diameter/2,0])square([insulator_groove_diameter,head_od/2]);
   }
+}
+
+module groove_mount_assembly(){
+  color("khaki")linear_extrude(height=4.67)groove_mount();
 }
 
 groove_mount();
