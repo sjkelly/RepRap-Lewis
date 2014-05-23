@@ -1,7 +1,7 @@
 #Who is Lewis?#
 The RepRap Lewis is named after Edward B. Lewis (http://en.wikipedia.org/wiki/Edward_B._Lewis), an American geneticist.
 
-![](https://dl-web.dropbox.com/get/RepRap/RepRap-Lewis/animated-lewis-02.gif?_subject_uid=244783214&w=AAA_6X_gF3kWDa0qOgNLahZQh2Jxl7k-SUSJ5eHUHNAoug)
+![](https://lh5.googleusercontent.com/-Gqi_oo3HXVo/U39u0x_pK0I/AAAAAAAAE7c/vd6vQhRQTZM/w793-h539-no/animated-lewis-02.gif)
 
 #What is Lewis?# 
 It is a polar/SCARA based RepRap combining use of simple arc movements along with a Sarrus linkage to achieve a very high printable component to vitamin ratio. 
